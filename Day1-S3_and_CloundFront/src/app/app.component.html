@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Welcome to Eba</h1>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of items">
+      <figure class="card card-product-grid card-lg">
+        <a href="#" class="img-wrap" data-abc="true"
+          ><img
+            [src]="item.img"
+        /></a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-8">
+              <a href="#" class="title" data-abc="true"
+                >{{item.name}}</a
+              >
+            </div>
+            <div class="col-md-4">
+              <div class="rating text-right">
+                <i *ngIf="item.rating>= 1" class="fa fa-star"></i>
+                <i *ngIf="item.rating>= 2" class="fa fa-star"></i>
+                <i *ngIf="item.rating>= 3" class="fa fa-star"></i>
+                <i *ngIf="item.rating>= 4" class="fa fa-star"></i>
+                <i *ngIf="item.rating>= 5" class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap">
+          <a href="#" class="btn btn-primary float-right" data-abc="true">
+            Buy now
+          </a>
+          <div class="price-wrap">
+            <span class="price h5">${{item.price}}</span> <br />
+            <small class="text-success">Free shipping</small>
+          </div>
+        </div>
+      </figure>
+    </div>
+    <!-- ------ -->
+  </div>
+</div>
