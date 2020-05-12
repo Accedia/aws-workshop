@@ -63,5 +63,5 @@
 
 **Task 4. Deletion of resources**
 
-1. EC2 instance named **\<your-name\>-ec2-instance**
+1. EC2 instance named **\<your-name\>-ec2-instance** (Go to Actions -> Instance State -> Terminate)
 2. RDS database (when deleting the RDS instance, please make sure to **UNCKECK** the **Create final snapshot?** checkbox)
