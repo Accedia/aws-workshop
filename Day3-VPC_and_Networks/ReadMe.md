@@ -155,7 +155,7 @@ sudo service httpd restart
 telnet <private IP of EC2 in Private Subnet> 3443
 ```
 
-> To get the Private IP of the `Back end` select it from the list
+> To get the Private IP of the `Back end` select it from the list of EC2 instances and see the details
 
 ## Cleanup
 Delete all your resources:
@@ -163,3 +163,16 @@ Delete all your resources:
 2. Delete your NAT Gateway (wait a few minutes to complete)
 3. Delete you VPC - it will delete all VPC resources
 4. Release Elastic IPs
+
+
+# Links
+
+## AWS Documentation
+
+https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html
+https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html
+
+## Networks
+https://en.wikipedia.org/wiki/Internet_protocol_suite
+https://en.wikipedia.org/wiki/OSI_model
