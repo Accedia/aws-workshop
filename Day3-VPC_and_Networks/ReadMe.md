@@ -1,15 +1,29 @@
 # Lab VPC
 
+- [Lab VPC](#lab-vpc)
+  - [Overview](#overview)
+  - [Instructions](#instructions)
+  - [VPC Excercise](#vpc-excercise)
+    - [Part I: Create your VPC](#part-i-create-your-vpc)
+    - [Part II: Create your Subnets](#part-ii-create-your-subnets)
+    - [Part III: Create your Route tables](#part-iii-create-your-route-tables)
+    - [Part IV: Create your Security Groups](#part-iv-create-your-security-groups)
+    - [Part V: Create EC2 instances](#part-v-create-ec2-instances)
+  - [Cleanup](#cleanup)
+  - [Links](#links)
+    - [AWS Documentation](#aws-documentation)
+    - [Networks](#networks)
+
 ## Overview
 
-We are going to create a VPC with public and priavte subnets.
-We will allow internet traffic (both inbound and outbound) to the public subnet.
-We will restrict only to only HTTP access (port 80) to the public subnet.
-We will allow outbound internet traffic from the private subnet.
-We will restrict inbound traffic to the private subnet to only from the public subnet.
-We will create a Web server EC2 instance in the public subnet.
-We will create a Back end EC2 instance in the private subnet.
-We will show the Web server can access the Back end and the Web server is accessible from the Internet.
+We are going to create a VPC with public and priavte subnets.  
+We will allow internet traffic (both inbound and outbound) to the public subnet.  
+We will restrict only to only HTTP access (port 80) to the public subnet.  
+We will allow outbound internet traffic from the private subnet.  
+We will restrict inbound traffic to the private subnet to only from the public subnet.  
+We will create a Web server EC2 instance in the public subnet.  
+We will create a Back end EC2 instance in the private subnet.  
+We will show the Web server can access the Back end and the Web server is accessible from the Internet.  
 
 ## Instructions
 
@@ -107,7 +121,7 @@ Click Create Security Group
 > Source: select "Web server" security group
 > Desciption: access from Web server
 
-## Part V: Create EC2 instances
+### Part V: Create EC2 instances
 
 Go to EC2 from the Services menu
 
@@ -176,5 +190,5 @@ https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html
 
 ### Networks
 
-https://en.wikipedia.org/wiki/Internet_protocol_suite
+https://en.wikipedia.org/wiki/Internet_protocol_suite  
 https://en.wikipedia.org/wiki/OSI_model
