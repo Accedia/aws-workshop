@@ -1,0 +1,40 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <label for="endpoint">Endpoint:</label>
+        <input type="text" id="endpoint" name="endpoint">
+        <label for="myFile">Select a file:</label>
+        <input type="file" id="myFile" name="myFile">
+        <button onclick="uploadFile()">Upload</button>
+        <p id="result"></p>
+
+        <script>
+            function uploadFile(){
+                const file = document.getElementById("myFile").files[0];
+                const endpoint = document.getElementById("endpoint").value;
+                console.log(endpoint);
+                console.log(file);
+
+                document.getElementById("result").innerHTML = 'Uploading... please wait.';
+                fetch(`${endpoint}?fileName=${file.name}`, {method: "POST", body: file}).then(res => {
+                    const message = `The file ${file.name} was successfully uploaded`;
+                    console.log(message, res);
+                    document.getElementById("result").innerHTML = message;
+                }).catch(err => {
+                    const message = `Error uploading the file ${file.name}. Please check the logs!`;
+                    console.log(message, err);
+                    document.getElementById("result").innerHTML = message;
+                }).finally(() => {
+                    setRemoveMessageTimer();
+                });
+            }
+
+            function setRemoveMessageTimer() {
+                setTimeout(() => {
+                    document.getElementById("result").innerHTML = '';
+                }, 5000);
+            }
+        </script>
+    </body>
+</html>
