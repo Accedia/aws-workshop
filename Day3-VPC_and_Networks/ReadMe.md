@@ -16,7 +16,7 @@
 
 ## Overview
 
-We are going to create a VPC with public and priavte subnets.  
+We are going to create a VPC with public and private subnets.  
 We will allow internet traffic (both inbound and outbound) to the public subnet.  
 We will restrict only to only HTTP access (port 80) to the public subnet.  
 We will allow outbound internet traffic from the private subnet.  
@@ -71,12 +71,12 @@ Go to Subnets submenu
 
 Go to Route Tables submenu
 
-1. Configure the Public Subnet
-1.1. Select the Main route table for you VPC
-1.2. Edit the Name cell to give it name "Public Your.Name"
-1.3. Go to Subnet Associations tab
-1.4. Click Edit subnet associations
-1.5. Check your Public Subnet
+1. Configure the Public Subnet  
+1.1. Select the Main route table for you VPC  
+1.2. Edit the Name cell to give it name "Public Your.Name"  
+1.3. Go to Subnet Associations tab  
+1.4. Click Edit subnet associations  
+1.5. Check your Public Subnet  
 
 2. Create Route table named "Private route table Your.Name"
 2.1. Repeat steps in 1.* of this part but check **Private subnet** instead on step 1.5.
