@@ -192,3 +192,5 @@ https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html
 
 https://en.wikipedia.org/wiki/Internet_protocol_suite  
 https://en.wikipedia.org/wiki/OSI_model
+https://en.wikipedia.org/wiki/Border_Gateway_Protocol
+https://en.wikipedia.org/wiki/MAC_address
