@@ -20,14 +20,14 @@
 2. _Step 1:_ For AMI choose **Amazon Linux 2, SSD volume type**
 3. _Step 2:_ For Instance Type choose **t2.micro**
 4. _Step 3:_ For **Number of instances** type 2 and leave the rest of the settings with their default values
-5. _Step 4:_ Add one new volume – **General Purpose SSD** with **20GB** and with delete on terminate checkbox **enabled**.
+5. _Step 4:_ Leave the volume created by default
 6. _Step 5:_ Add a tag **Name** with a value following this format **\<your-name\>-ec2-instance**.
 7. _Step 6:_ Name the security group following the format *\<your-name\>-ec2-alb-sg*. Leave the SSH rule and add a new one. Select a type of HTTP and for source delete the default value and search for the security group that was created for the Application Load Balancer in Task 1. (*Hint: * should be named *\<your-name\>-alb-security-group*)
 8. _Step 7:_ Go through the instance summary and hit the **Launch** button
 9. A modal asking to select a Key pair will show up. In the first dropdown menu select the **Proceed without a key pair** option, enable the below checkbox and hit Launch Instance.
 10. Go to the running instances dashboard and wait until your 2 instances get to a **running** state
 
-    ------ Run the above steps for each of the 2 created EC2 instances ------
+    ------ Run the below steps for each of the 2 created EC2 instances ------
 
 11. Select the instance and click on connect vie the third option **EC2 Instance Connect (browser-based SSH connection)**, **Connect**
 12. Install a **Apache server** using the following command:
@@ -51,3 +51,10 @@
 7. Find the load balancer that was created in Task 1 and click on it. (*Hint:* should be named *\<your-name\>-alb*).
 8. Get the DNS name and try to access it from the browser.
 9. Make sure that the Apache welcome screen is shown.
+
+
+**Task 4. Remove the created resource**
+1. Delete the created load balancer: *\<your-name\>-alb*
+2. Delete the created target group: *\<your-name\>-alb-target-group*
+3. Terminate the created EC2 instances: **\<your-name\>-ec2-instance**
+4. Delete the security groups that were created: *\<your-name\>-alb-security-group*, *\<your-name\>-ec2-alb-sg*
