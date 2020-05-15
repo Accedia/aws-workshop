@@ -68,3 +68,4 @@ Delete the following resources:
 3. The lambda functions roles
 4. The policy lab-<your-name>-s3-putObject in IAM Policies
 5. The roles lab-<your-name>-get-users-role and lab-<your-name>-upload-file-role in IAM Roles
+6. The log groups /aws/lambda/lab-<your-name>-get-users and /aws/lambda/lab-<your-name>-upload-file in CloudWatch Log groups
