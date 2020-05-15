@@ -12,6 +12,7 @@ exports.handler = async (event) => {
     
     const data = await s3.putObject(params).promise().catch(err => {
         console.log(`Error putting ${event.queryStringParameters.fileName} in the ${params.Bucket}`, err);
+        throw err;
     });
 
     console.log('data', data);
