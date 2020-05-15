@@ -46,7 +46,7 @@ You need to create a simple REST API using serverless in AWS. The API must have 
   - Pick resource name -> pick resource path -> Create Resource
   - Actions -> Create Method -> GET
   - Choose Integration type "Lambda Function"
-  - Tick "User Lambda Proxy integration -> choose Lambda Function "<your-name>-lab-get-users" -> Save
+  - Tick "User Lambda Proxy integration" -> choose Lambda Function "<your-name>-lab-get-users" -> Save
   - Actions -> Deploy API -> Create new stage "dev"
   - Test your endpoint in the browser - <your-api-url>/dev/users
 ```
@@ -56,7 +56,7 @@ You need to create a simple REST API using serverless in AWS. The API must have 
   - Pick resource name -> pick resource path -> **tick Enable API Gateway CORS** -> Create Resource
   - Actions -> Create Method -> POST
   - Choose Integration type "Lambda Function"
-  - **Tick "User Lambda Proxy integration** -> choose Lambda Function "<your-name>-lab-upload-file" -> Save
+  - **Tick "User Lambda Proxy integration"** -> choose Lambda Function "<your-name>-lab-upload-file" -> Save
   - Actions -> Deploy API -> Pick "dev" stage
   - Test your endpoint - open the index.html file and upload a file containing your name successfully in the S3 "accedia-aws-training-files-bucket"
 ```
