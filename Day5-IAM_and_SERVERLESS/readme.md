@@ -12,7 +12,7 @@ You need to create a simple REST API using serverless in AWS. The API must have 
 ```
   - Go to Services -> API Gateway -> Create API
   - Choose REST API -> Build
-  - Pick API name -> Create API
+  - Choose REST protocol -> New API -> pick API name -> choose Endpoint Type Regional  -> Create API
 ```
 2. Create Lambda Function to retrieve users - "lab-<your-name>-get-users"
 ```
@@ -35,7 +35,7 @@ You need to create a simple REST API using serverless in AWS. The API must have 
   - Go to Services -> Lambda -> Create function
   - Choose Author from scratch -> pick a Function name -> pick a Runtime "Node.js 12.x" -> Create function
   - Choose Code entry type "Upload a .zip file" or "Edit code inline"
-  - Upload "UploadFile.zip" or copy-paste the code -> Save
+  - Zip the UploadFile/index.js and upload the zip or simply copy-paste the code inline from the index.js -> Save
   - Basic settings -> Edit -> View the <your-name>-upload-file-role"
   - Attach policies -> find your policy from the previous step -> Attach policies
 ```
@@ -53,17 +53,17 @@ You need to create a simple REST API using serverless in AWS. The API must have 
 6. Create /upload-file resource with POST method in your REST API in API Gateway
 ```
   - Actions -> Create Resource
-  - Pick resource name -> pick resource path -> tick Enable API Gateway CORS -> Create Resource
+  - Pick resource name -> pick resource path -> **tick Enable API Gateway CORS** -> Create Resource
   - Actions -> Create Method -> POST
   - Choose Integration type "Lambda Function"
-  - Tick "User Lambda Proxy integration -> choose Lambda Function "<your-name>-lab-upload-file" -> Save
+  - **Tick "User Lambda Proxy integration** -> choose Lambda Function "<your-name>-lab-upload-file" -> Save
   - Actions -> Deploy API -> Pick "dev" stage
-  - Test your endpoint - open the index.html file and upload a file successfully in the S3 "accedia-aws-training-files-bucket"
+  - Test your endpoint - open the index.html file and upload a file containing your name successfully in the S3 "accedia-aws-training-files-bucket"
 ```
 
 Delete the following resources:
 
-1. REST API in the API Gateway
+1. The REST API lab-<your-name>-rest-api in the API Gateway
 2. The lambda functions lab-<your-name>-get-users and lab-<your-name>-upload-file
 3. The policy lab-<your-name>-s3-putObject in IAM Policies
 4. The roles lab-<your-name>-get-users-role and lab-<your-name>-upload-file-role in IAM Roles
