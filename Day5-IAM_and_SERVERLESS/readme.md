@@ -64,8 +64,7 @@ You need to create a simple REST API using serverless in AWS. The API must have 
 Delete the following resources:
 
 1. REST API in the API Gateway
-2. Two lambda functions
-3. The lambda functions roles
-4. The policy lab-<your-name>-s3-putObject in IAM Policies
-5. The roles lab-<your-name>-get-users-role and lab-<your-name>-upload-file-role in IAM Roles
-6. The log groups /aws/lambda/lab-<your-name>-get-users and /aws/lambda/lab-<your-name>-upload-file in CloudWatch Log groups
+2. The lambda functions lab-<your-name>-get-users and lab-<your-name>-upload-file
+3. The policy lab-<your-name>-s3-putObject in IAM Policies
+4. The roles lab-<your-name>-get-users-role and lab-<your-name>-upload-file-role in IAM Roles
+5. The log groups /aws/lambda/lab-<your-name>-get-users and /aws/lambda/lab-<your-name>-upload-file in CloudWatch Log groups
