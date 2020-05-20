@@ -2,9 +2,9 @@
 
 1. Before starting make sure you are in the correct region assigned to you:
 
-- N.Virginia - Breakout room 1 & 2
-- Ohio - Breakout room 3 & 4
-- Oregon - Breakout room 5 & 6
+   - N.Virginia - Breakout rooms 1 & 2
+   - Ohio - Breakout rooms 3 & 4
+   - Oregon - Breakout rooms 5 & 6
 
 If you don't know which region you should use, please, reach out to some of the hosts.
 
