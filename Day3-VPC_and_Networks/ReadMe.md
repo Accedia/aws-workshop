@@ -64,7 +64,7 @@ In this part you will create your VPC. Make sure you are in the correct region a
 
 ### Part II: Create your Subnets
 
-In this part you will create two subnets - one calle **Public** and one called **Private**. We 
+In this part you will create two subnets - one calle **Public** and one called **Private**.
 
 > Create Public subnet
 
@@ -166,7 +166,7 @@ In this part you will create and configure a *Private Route Table*. You will all
 
 ### Part V: Create your Security Groups
 
-In this section you will create
+In this section you will create two Security groups. One called `web server` will allow all inbound traffiac at port 80 and the other called `back end` will allow port 22 inbound traffic from security group `web server`.  
 
 > Create **Web Server** Security Group
 
@@ -179,8 +179,8 @@ In this section you will create
 
 4. Under `Inbound rules` click `Add rule`
 5. Enter the following:
-> Type: HTTP (port 80)
-> Source: 0.0.0.0/0
+> Type: HTTP (port 80)  
+> Source: 0.0.0.0/0  
 > Description: Public HTTP access
 
 6. Click `Create security group`
@@ -204,21 +204,21 @@ In this section you will create
 
 ### Part VI: Create EC2 instances
 
-In this part we will create two EC2 instances - one web server and one for backk-end.
+In this part we will create two EC2 instances - one called `web server` will be located in the Public subnet with security group `web server` attached to it. The orher instance `back end` will be in Private subnet with security group `back end` attached to it. In the end you will check the connectivity between the internet and the `web server` and the `web server` and the `back end` instances.
 
 > Launch Web server EC2 instance in the Public subnet
 
 1. Go to EC2 from the Services menu
 2. Click `Instances` on the left side menu
 3. Click `Launch instance`
-4. Enter the following on each step of the launch wizard:
-*Step 1.* Select `Linux AMI 2`
-*Step 2.* Leave default `t2.micro` and click `Next: Configure Instance details`
+4. Enter the following on each step of the launch wizard:  
+*Step 1.* Select `Linux AMI 2`  
+*Step 2.* Leave default `t2.micro` and click `Next: Configure Instance details`  
 *Step 3.* Choose:
 
-> Network: ***change*** selection to your VPC
-> Subnet: your **Public** subnet
-> Auto-assign Public IP: **Enable** (or `Use subnet setting(Enable)`)
+> Network: ***change*** selection to your VPC  
+> Subnet: your **Public** subnet  
+> Auto-assign Public IP: **Enable** (or `Use subnet setting(Enable)`)  
 > IAM role: select **SSMRoleForEC2** (this will allow you to use Session Manager to connect to this instance later)
 
 Click `Next: Add storage`
@@ -226,7 +226,7 @@ Click `Next: Add storage`
 *Step 4.* Click `Next: Add Tags`
 
 *Step 5.* Click `Add tags` and add tag 
-> Name = \<your mame> web server
+> Name = \<your mame> web server  
 > Application = AWS Training
 
 *Step 6.* Click `Select an existing security group` and choose `<your name> Web server` security group
@@ -241,13 +241,13 @@ Select *Launch without a key pair* from the pop-up, check I aknowledge box and c
 
 5. Go back to `Instances` list in left side menu
 6. Click `Launch instance`
-7. Enter the following on each step of the launch wizard:
-*Step 1.* Select `Linux AMI 2`
-*Step 2.* Leave default `t2.micro` and click `Next: Configure Instance details`
+7. Enter the following on each step of the launch wizard:  
+*Step 1.* Select `Linux AMI 2`  
+*Step 2.* Leave default `t2.micro` and click `Next: Configure Instance details`  
 *Step 3.* Choose:
 
-> Network: ***change*** selection to your VPC
-> Subnet: your **Private** subnet, not public
+> Network: ***change*** selection to your VPC  
+> Subnet: your **Private** subnet, not public  
 > Auto-assign Public IP: **Disable** (or `Use subnet setting(Disable)`)
 
 Click `Next: Add storage`
@@ -255,7 +255,7 @@ Click `Next: Add storage`
 *Step 4.* Click `Next: Add Tags`
 
 *Step 5.* Click `Add tags` and add tag 
-> Name = \<your mame> web server
+> Name = \<your mame> web server  
 > Application = AWS Training
 
 *Step 6.* Click `Select an existing security group` and choose `<your name> Back end` security group
@@ -318,6 +318,6 @@ https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html
 
 http://jodies.de/ipcalc?host=10.0.0.0&mask1=24&mask2=26 - Subnet calculator
 https://en.wikipedia.org/wiki/Internet_protocol_suite  
-https://en.wikipedia.org/wiki/OSI_model
+https://en.wikipedia.org/wiki/OSI_model  
 https://en.wikipedia.org/wiki/Border_Gateway_Protocol
 https://en.wikipedia.org/wiki/MAC_address
