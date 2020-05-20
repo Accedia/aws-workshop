@@ -1,6 +1,13 @@
 **Task 0. Make sure you are in the correct AWS region.**
 
-1. Before starting make sure you are in the correct region assigned to you. If you don't know which region you should use, please, reach out to some of the hosts.
+1. Before starting make sure you are in the correct region assigned to you:
+
+- N.Virginia - Breakout room 1 & 2
+- Ohio - Breakout room 3 & 4
+- Oregon - Breakout room 5 & 6
+
+If you don't know which region you should use, please, reach out to some of the hosts.
+
 
 **Task 1. Launch a MySQL RDS instance and make it publicly available**
 
