@@ -29,47 +29,64 @@ We will show the Web server can access the Back end and the Web server is access
 
 Use Regions:
 
-1. N.Virginia - Users 1 to 5
-2. Ohio - Users 6 to 10
-3. Oregon - Users 11 to 15
-4. Mumbai - Users 16 to 20
-5. Stockholm - Users 21 to 25
-6. Canada - Users 26 to 30
-7. Seul - etc.
-8. Ireland - etc.
+1. N.Virginia - Users 1 to 4
+2. Ohio - Users 5 to 8
+3. Oregon - Users 9 to 12
+4. Mumbai - Users 13 to 16
+5. Stockholm - Users 17 to 20
+6. Canada - Users 21 to 24
+7. Seul - Users 25 to 28
+8. Ireland - Users 29 to 32
 
-Name** your VPC and all your resources with with your username as suffix, ex. "vpc denislav.savkov ", "public subnet denislav.savkov".
-> You can do this by editing the Name column in any resources table by clicking the pecil on the right side of the table cell.
-Another way to do it is by adding a tag called Name to the resurce.
+**Note: Use convention for naming *ALL* your resources like**  
+> **\<your name> \<resource type>**
+
+ **for example:**
+ > **"denislav savkov vpc"**
+ > **"denislav.savkov public subnet"**
+
+**You can do this by editing the Name column in any table of resources in the AWS Management Console  by clicking the pecil on the right side of the table cell.
+Another way to do it is by adding a tag called Name to the resurce.**
 
 ## VPC Excercise
 
 ### Part I: Create your VPC
 
-Open VPC from the Services main menu
+In this section you wil create your VPC. Make sure you are in the correct region according to the [Instructions](#instructions).
 
-1. Create VPC
-Go to VPC and click Cretate VPC.
-Use `10.0.0.0/24` for CIDR block
+1. Open `VPC` from the `Services` main menu
+2. Go to `Your VPCs`
+3. Click `Create VPC`
+4. Enter in `Name tag` name according to the described convention  `vpc <your name>`
+5. Use `10.0.0.0/24` for CIDR block. Click [here](http://jodies.de/ipcalc?host=10.0.0.0&mask1=24&mask2=) to visualize.
+6. Click `Create` then `Close`
 
 ### Part II: Create your Subnets
 
-Go to Subnets submenu
+In this section you will create two subnets - one public and one private.
 
-1. Create Public subnet
-   1.1. Use `10.0.0.0/26` for CIDR Block
-   1.2. After creating it Select the Public subnet from the list of sunets
-   1.3. From the Actions button click Modify auto-assign IP settings
-   > Check Auto-assign IPv4
+1. Go to `Subnets` submenu of `VPC` just below `Your VPCs`
+2. Click `Create subnet`
+3. Enter `<your name> Public subnet` in the `Name tag`
+4. Select the VPC you created (with your name) from the list of VPCs
+5. Select the first `Availabilityh zone` from the list
+6. Enter `10.0.0.0/26` for `IPv4 CIDR block`
+   You can use this calculator to visualise the network: http://jodies.de/ipcalc?host=10.0.0.0&mask1=24&mask2=)
+   
+7. Click `Create` then `Close`
+8. Select the Public subnet you just created from the list of subnets
+9. Click `Actions` button and then `Modify auto-assign IP settings`. This will option will give new EC2 instance Public IP address by default.
+10. Check `Auto-assign IPv4` and `Save`
 
-2. Create Private subnet
+
+10. Create Private subnet
    2.1. Use `10.0.0.64/26` for Private Subnet
 
 > (Optional) To create second public and private subnets in another availability zone, you can repeat steps 2 and 3 and use `10.0.0.128/26` and `10.0.0.192/26`
 
 ### Part III: Create your Route tables
 
-Go to Route Tables submenu
+Go to Route Tables submenu of the VPC 
 
 1. Configure the Public Subnet  
 1.1. Select the Main route table for you VPC  
@@ -79,11 +96,12 @@ Go to Route Tables submenu
 1.5. Check your Public Subnet  
 
 2. Create Route table named "Private route table Your.Name"
-2.1. Repeat steps in 1.* of this part but check **Private subnet** instead on step 1.5.
+2.1. Select it from the list  
+2.2. Repeat steps 1.3 to 1.5 of this part but use **Private** instead of **Public** in the steps  
 
-3. Create Internet Gateway
-4. Attach the Internet Gateway to you VPC
-5. Add Internet Gateway to Public route table
+1. Create Internet Gateway
+2. Attach the Internet Gateway to you VPC
+3. Add Internet Gateway to Public route table
 Add a row with `0.0.0.0/0` as Destination and select the `IGW` as Target
 1. Create NAT Gateway in your Public Subnet, click `Allocate Elastic IP` and Save
 2. Add NAT Gateway to Private route table
@@ -116,9 +134,9 @@ Click Create Security Group
 6. Select it from the list
 7. Click Inbound Rules
 8. Add a inbound rule
-> Type: Custom
+> Type: Custom TCP
 > Port: 3443
-> Source: select "Web server" security group
+> Source: click in the Source field and select "Web server" security group (that you created in steps 1-5 of this part)
 > Desciption: access from Web server
 
 ### Part V: Create EC2 instances
@@ -135,6 +153,8 @@ Go to EC2 from the Services menu
 > Auto-assign Public IP: **Enable**
 > IAM role: **SSMRoleForEC2** (this will allow you to use Session Manager to connect to this instance later)
 
+Click `Next: Add storage`
+
 *Step 4.* Click `Next: Add Tags`
 
 *Step 5.* Click `Add tags` and add tag 
@@ -143,7 +163,9 @@ Go to EC2 from the Services menu
 
 *Step 6.* Select `Web server` security group
 
-2. Create EC2 instance (Back end) in private subnet
+Select *Launch without a key pair*
+
+2. Create a second EC2 instance (Back end) in private subnet
 
 Repeat the same steps in 1. except on *Step 3.* use:
 > Network: your VPC
@@ -154,7 +176,7 @@ Repeat the same steps in 1. except on *Step 3.* use:
 and on *Step 6.* Select `Back end` security group
 
 3. Select the `Web server` EC2 instance
-4. Click Configure, Connect using Session Manager
+4. Click Configure, select Session Manager and click Connect (if the button is disabled got to Actions->Instance Settings and Attach IAM Role, select `SSMSSMRoleForEC2`)
 5. Install `telnet`, `apache` web server and start the web server by executing this in the terminal:
 
 ```bash
@@ -163,8 +185,17 @@ sudo yum -y install httpd
 sudo service httpd restart
 ```
 
-6. Verify connection with Back end instance
+6. Verify connection with Web server instance
+6.1 Select the `Web server` instance from the list of EC2
+6.2 In the details find the Public IP of the instance
+6.3 Got to your browser and past 
 
+7. Verify connection with Back end instance
+
+```bash
+telnet <private IP of EC2 in Private Subnet> 22
+```
+Expect to connect.
 ```bash
 telnet <private IP of EC2 in Private Subnet> 3443
 ```
@@ -178,7 +209,7 @@ Delete all your resources:
 1. Terminate all the EC2 instance in your VPC
 2. Delete your NAT Gateway (wait a few minutes to complete)
 3. Delete you VPC - it will delete all VPC resources
-4. Release Elastic IPs
+4. Go to Elastic IPs and release Association
 
 ## Links
 
