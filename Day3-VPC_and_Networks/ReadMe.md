@@ -13,7 +13,7 @@
   - [Cleanup](#cleanup)
   - [Links](#links)
     - [AWS Documentation](#aws-documentation)
-    - [Networks](#networks)
+    - [Computer Networks](#computer-networks)
 
 ## Overview
 
@@ -66,7 +66,8 @@ In this part you will create your VPC. Make sure you are in the correct region a
 
 In this part you will create two subnets - one calle **Public** and one called **Private**.
 
-> Create Public subnet
+<!-- omit in toc -->
+###### Create Public subnet
 
 1. Go to `Subnets` submenu of `VPC` just below `Your VPCs`
 2. Click `Create subnet`
@@ -79,7 +80,8 @@ In this part you will create two subnets - one calle **Public** and one called *
 9. Click `Actions` button and then `Modify auto-assign IP settings`. This will option will give new EC2 instance Public IP address by default.
 10. Check `Auto-assign IPv4` and `Save`
 
- > Create Private subnet
+<!-- omit in toc -->
+###### Create Private subnet
 
 11. Click `Create subnet`
 12. Enter `<your name> Private subnet` in the `Name tag`
@@ -94,7 +96,8 @@ In this part you will create two subnets - one calle **Public** and one called *
 
 In this part you will use the *default* VPC *Route Table* to associate with the *Public Subnets*. You will configure the route table to allow ingress and egress internet traffic by creating an *Internet Gateway* and adding it in a routing rule in the *Public Route Table*.
 
-> Associate the default VPC route table with Public subnet
+<!-- omit in toc -->
+###### Associate the default VPC route table with Public subnet
 
 1. Go to `Your VPCs` submenu of the `VPC`
 2. Select your VPC frpm the table
@@ -108,7 +111,8 @@ In this part you will use the *default* VPC *Route Table* to associate with the 
 10. Select your ***Public** Subnet*
 11. Click `Save`
 
-> Create Internet Gateway
+<!-- omit in toc -->
+###### Create Internet Gateway
 
 12. Go to `Internet Gateways` submenu of `VPC` just below `Route Tables`
 13. Click `Create internet gateway`
@@ -118,7 +122,8 @@ In this part you will use the *default* VPC *Route Table* to associate with the 
 17. Select your VPC from the list
 18. Click `Attach`
 
-> Add Internet Gateway to Public route table
+<!-- omit in toc -->
+###### Add Internet Gateway to Public route table
 
 19. Go back to your Public route table
 20. Click on `Routes` ***tab*** 
@@ -131,7 +136,8 @@ In this part you will use the *default* VPC *Route Table* to associate with the 
 
 In this part you will create and configure a *Private Route Table*. You will allow egress internet connection by creating a *NAT Gateway* and adding it in a routing rule in the *Private Route Table*
 
-> Create Private route table and associate with the Private subnet
+<!-- omit in toc -->
+###### Create Private route table and associate with the Private subnet
 
 1.  Click `Create route table`
 2.  Enter `<your name> Private route table` in for `Name tag`  
@@ -142,7 +148,8 @@ In this part you will create and configure a *Private Route Table*. You will all
 7.  Select your ***Private** Subnet*
 8.  Click `Save`
 
-> Create a NAT Gateway
+<!-- omit in toc -->
+###### Create a NAT Gateway
 
 9. Go to `NAT Gateways` submenu of `VPC`
 10. Click `Create NAT Gateway`
@@ -154,7 +161,8 @@ In this part you will create and configure a *Private Route Table*. You will all
 16. Click on the NAT Gateway ID or `Close`
 17. Wait until you NAT Gateway becomes from status `pending` to `available`
 
-> Add NAT Gateway to the Priavte route table
+<!-- omit in toc -->
+###### Add NAT Gateway to the Priavte route table
 
 18. Go back to your Private route table
 19. Click `Routes`
@@ -168,7 +176,8 @@ In this part you will create and configure a *Private Route Table*. You will all
 
 In this section you will create two Security groups. One called `web server` will allow all inbound traffiac at port 80 and the other called `back end` will allow port 22 inbound traffic from security group `web server`.  
 
-> Create **Web Server** Security Group
+<!-- omit in toc -->
+###### Create **Web Server** Security Group
 
 1. In the `SECURITY` sections of the left side menu go to Security Groups submenu
 2. Click `Create Security Group`
@@ -185,19 +194,20 @@ In this section you will create two Security groups. One called `web server` wil
 
 6. Click `Create security group`
 
-> Create **Back end** Security Group
+<!-- omit in toc -->
+###### Create **Back end** Security Group
 
 7. Go back to `Security Groups` submenu in `SECURITY` section of the left side menu
 8. Click `Create security group`
 9. Enter the following:
-> Name: <your name> Back end
-> Description: Allows port 22
+> Name: <your name> Back end  
+> Description: Allows port 22  
 > VPC: select your VPC from the list
 
 10. Under `Inbound rules` click `Add rule` 
 11. Enter the following:
-> Type: SSH
-> Port: 22
+> Type: SSH  
+> Port: 22  
 > Source: click in the Source field and select your security group "\<your name> web server" or type your name to find it
 > Desciption: access from Web server
 12. Click `Create security group`
@@ -206,7 +216,8 @@ In this section you will create two Security groups. One called `web server` wil
 
 In this part we will create two EC2 instances - one called `web server` will be located in the Public subnet with security group `web server` attached to it. The orher instance `back end` will be in Private subnet with security group `back end` attached to it. In the end you will check the connectivity between the internet and the `web server` and the `web server` and the `back end` instances.
 
-> Launch Web server EC2 instance in the Public subnet
+<!-- omit in toc -->
+###### Launch Web server EC2 instance in the Public subnet
 
 1. Go to EC2 from the Services menu
 2. Click `Instances` on the left side menu
@@ -237,7 +248,8 @@ Click `Continue` on the warning pop-up.
 *Step 7.* Click `Launch` 
 Select *Launch without a key pair* from the pop-up, check I aknowledge box and click `Launch instance`
 
-> Create Back-end instance in the Private subnet
+<!-- omit in toc -->
+###### Create Back-end instance in the Private subnet
 
 5. Go back to `Instances` list in left side menu
 6. Click `Launch instance`
@@ -277,14 +289,16 @@ sudo yum -y install httpd
 sudo service httpd restart
 ```
 
-> Verify connection with Web server instance
+<!-- omit in toc -->
+###### Verify connection with Web server instance
 
 12. Select the `Web server` instance from the list of EC2
 13. In the `Description` tab find the Public IP of the instance and copy it
 14. Go to your browser and paste it in the address bar
 (Optional) You should see the apache test page. You can then stop the server with `sudo service httpd stop` and reload the browser
 
-> Verify connection between Web server and Back end instance
+<!-- omit in toc -->
+###### Verify connection between Web server and Back end instance
 
 15. Go back to `Instances`
 16. Select the `<your name> Back end` instance
@@ -314,7 +328,7 @@ https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
 https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html
 https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html
 
-### Networks
+### Computer Networks
 
 http://jodies.de/ipcalc?host=10.0.0.0&mask1=24&mask2=26 - Subnet calculator
 https://en.wikipedia.org/wiki/Internet_protocol_suite  
