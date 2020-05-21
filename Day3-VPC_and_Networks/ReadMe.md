@@ -30,14 +30,13 @@ We will show the Web server can access the Back end and the Web server is access
 
 Use Regions:
 
-1. N.Virginia - Users 1 to 4
-2. Ohio - Users 5 to 8
-3. Oregon - Users 9 to 12
-4. Mumbai - Users 13 to 16
-5. Stockholm - Users 17 to 20
-6. Canada - Users 21 to 24
-7. Seul - Users 25 to 28
-8. Ireland - Users 29 to 32
+- Ohio - breakout room #1
+- Oregon - breakout room #2
+- Mumbai - breakout room #3
+- Stockholm - breakout room #4
+- Canada - breakout room #5
+- Seul - breakout room #6
+- Ireland - breakout room #7
 
 **Note: Use convention for naming *ALL* your resources like**  
 > **\<your name> \<resource type>**
