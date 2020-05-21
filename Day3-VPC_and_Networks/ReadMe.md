@@ -181,7 +181,7 @@ In this section you will create two Security groups. One called `web server` wil
 1. In the `SECURITY` sections of the left side menu go to Security Groups submenu
 2. Click `Create Security Group`
 3. Enter the following:
-> Name: <your name> Web server  
+> Name: \<your name> Web server  
 > Description: Allows HTTP port 80  
 > VPC: select your VPC from the list  
 
@@ -199,7 +199,7 @@ In this section you will create two Security groups. One called `web server` wil
 7. Go back to `Security Groups` submenu in `SECURITY` section of the left side menu
 8. Click `Create security group`
 9. Enter the following:
-> Name: <your name> Back end  
+> Name: \<your name> Back end  
 > Description: Allows port 22  
 > VPC: select your VPC from the list
 
