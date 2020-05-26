@@ -1,5 +1,10 @@
 **Task 0. Make sure you are in the correct AWS region.**
-1. Before starting make sure you are in the correct region assigned to you. If you don't know which region you should use, please, reach out to some of the hosts.
+1. Before starting make sure you are in the correct region assigned to you:
+  - N.Virginia - Breakout rooms 1 & 2
+  - Ohio - Breakout rooms 3 & 4
+  - Oregon - Breakout rooms 5 & 6
+
+If you don't know which region you should use, please, reach out to some of the hosts.
 
 **Task 1. Create an Application Load Balancer**
 1. Go to Services -> EC2
